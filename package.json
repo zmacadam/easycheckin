@@ -1,0 +1,17 @@
+{
+  "name": "project1",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.3.4",
+    "bcrypt": "^3.0.0",
+    "file-saver": "^2.0.2",
+    "mailgun-js": "^0.22.0",
+    "meteor-node-stubs": "^0.4.1",
+    "request": "^2.88.0",
+    "require": "^2.4.20"
+  },
+  "devDependencies": {}
+}

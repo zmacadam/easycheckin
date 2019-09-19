@@ -1,0 +1,616 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+}
+
+.pagehead {
+    text-align: left;
+    line-height: 50px;
+    color: #FFFFFF;
+    font-size: 24px;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.login-form input[type=submit] {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.login-form input[type=submit]:hover,.login-form input[type=submit]:active,.login-form input[type=submit]:focus {
+  background: #43A047;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 16px;
+}
+.form .message a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+.form .register-form {
+  display: none;
+}
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 300px;
+  margin: 0 auto;
+}
+.container:before, .container:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.container .info {
+  margin: 50px auto;
+  text-align: center;
+}
+.container .info h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  font-size: 36px;
+  font-weight: 300;
+  color: #1a1a1a;
+}
+.container .info span {
+  color: #4d4d4d;
+  font-size: 12px;
+}
+.container .info span a {
+  color: #000000;
+  text-decoration: none;
+}
+.container .info span .fa {
+  color: #EF3B3A;
+}
+body.landing-page {
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+  background: -moz-linear-gradient(right, #76b852, #8DC26F);
+  background: -o-linear-gradient(right, #76b852, #8DC26F);
+  background: linear-gradient(to left, #76b852, #8DC26F);
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
+
+.selected {
+    background-color: yellow;
+}
+
+input.error{
+    background-color:rgb(255,231,231);
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+  }
+  
+  .tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 8px 50px;
+    transition: 0.3s;
+  }
+  
+  .tab button:hover {
+    background-color: #ddd;
+  }
+  
+  .tab button.active {
+    background-color:#76b852;
+  }
+
+  table, th, td {
+      border-bottom: 1px solid black;
+  }
+  th, td {
+      padding: 5px;
+  }
+  tr:hover {background-color:yellow;}
+
+  table.scroll {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 2px solid black;
+}
+
+table.scroll tbody,
+table.scroll thead { display: block; }
+
+thead tr th { 
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+}
+
+table.scroll tbody {
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+tbody { border-top: 2px solid black; }
+
+tbody td, thead th {
+    width: 8%;
+}
+
+tbody th {
+    width: 5%;
+}
+
+tbody td:last-child, thead th:last-child {
+    border-right: none;
+}
+
+th {
+    background-color: darkgray;
+}
+tr {
+    background-color: white;
+}
+
+.column {
+    float: left;
+    width: 33.3%
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tab input[type="text"] {
+    font: 22px "Roboto", Helvetica, Arial, sans-serif;
+    width: 25%;
+    padding: 0px;
+    margin-left: 0px;
+}
+
+.memberForm {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  
+  .container2 {
+    max-width: 80%;
+    width: 100%;
+    margin-left: 10%;
+  }
+  
+  #addmember input[type="text"],
+  #addmember input[type="text"],
+  #addmember input[type="text"],
+  #addmember input[type="submit"] {
+    font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+  }
+  
+  #addmember {
+    background: #F9F9F9;
+    padding: 6%;
+    margin: 6%;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  
+  #addmember h3 {
+    display: block;
+    font-size: 30px;
+    font-weight: 300;
+    margin-bottom: 7%;
+  }
+  
+  fieldset {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+  }
+  
+  #addmember input[type="text"],
+  #addmember input[type="text"],
+  #addmember input[type="text"] {
+    width: 94%;
+    border: 1px solid #ccc;
+    background: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+  }
+  
+  #addmember input[type="text"]:hover,
+  #addmember input[type="text"]:hover,
+  #addmember input[type="text"]:hover {
+    -webkit-transition: border-color 0.3s ease-in-out;
+    -moz-transition: border-color 0.3s ease-in-out;
+    transition: border-color 0.3s ease-in-out;
+    border: 1px solid #aaa;
+  }
+  
+  
+  #addmember input[type="submit"] {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    background: #4CAF50;
+    color: #FFF;
+    margin: 0 0 5px;
+    padding: 10px;
+    font-size: 15px;
+  }
+  
+  #addmember input[type="submit"]:hover {
+    background: #43A047;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  #addmember input[type="submit"]:active {
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  }
+  
+  
+  #addmember input:focus,
+  
+  ::-webkit-input-placeholder {
+    color: #888;
+  }
+  
+  :-moz-placeholder {
+    color: #888;
+  }
+  
+  ::-moz-placeholder {
+    color: #888;
+  }
+  
+  :-ms-input-placeholder {
+    color: #888;
+  }
+  p.a {
+      color: white;
+      text-align: center;
+      font-size: 67px;
+  }
+
+p.b {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+}
+p.c {
+    color: black;
+    text-align: center;
+    font-size: 40px;
+}
+p.d {
+    color: white;
+    text-align: left;
+    font-size: 30px;
+}
+
+p.group {
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    border: 1px black;
+    width: 100%;
+}
+
+.container3 {
+    position: relative;
+    z-index: 1;
+    max-width: 50%;
+    margin: 0 auto;
+  }
+
+.form2 {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 100%;
+    margin: 0 auto 20%;
+    padding: 2%;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+
+.checkIn {
+    border: 2px solid green;
+    color: green;
+    width: 360px;
+    height: 160px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: .5s;
+    font-size: 40px;
+    border-radius: 5px;
+    font-family: "Lato",sans-serif;
+}
+.checkIn:hover {
+    background-color: green;
+    transition: 0.3s ease-in-out;
+    border: none;
+    color: white;
+    font-size: 50px;
+}
+
+.useGroup {
+    border: 2px solid green;
+    color: green;
+    width: 180px;
+    height: 80px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: .5s;
+    font-size: 20px;
+    border-radius: 5px;
+    font-family: "Lato",sans-serif;
+    margin: 5%;
+}
+.useGroup:hover {
+    background-color: green;
+    transition: 0.3s ease-in-out;
+    border: none;
+    color: white;
+    font-size: 24px;
+}
+
+.removeGroup {
+    border: 2px solid red;
+    color: red;
+    width: 180px;
+    height: 80px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: .5s;
+    font-size: 20px;
+    border-radius: 5px;
+    font-family: "Lato",sans-serif;
+    margin: 5%;
+  }
+.removeGroup:hover {
+    background-color: red;
+    transition: 0.3s ease-in-out;
+    border: none;
+    color: white;
+    font-size: 24px;
+    }
+
+.createGroup {
+        border: 2px solid green;
+        color: green;
+        width: 180px;
+        height: 80px;
+        outline: none;
+        cursor: pointer;
+        background: none;
+        transition: .5s;
+        font-size: 20px;
+        border-radius: 5px;
+        font-family: "Lato",sans-serif;
+        margin: 5%;
+}
+.createGroup:hover {
+        background-color: green;
+        transition: 0.3s ease-in-out;
+        border: none;
+        color: white;
+        font-size: 24px;
+}
+
+.stopRoll {
+    border: 2px solid red;
+    color: red;
+    width: 180px;
+    height: 80px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: .5s;
+    font-size: 24px;
+    border-radius: 5px;
+    font-family: "Lato",sans-serif;
+    margin: 17%;
+  }
+.stopRoll:hover {
+    background-color: red;
+    transition: 0.3s ease-in-out;
+    border: none;
+    color: white;
+    font-size: 28px;
+    }
+ 
+
+.takeRoll {
+    border: 2px solid green;
+    color: green;
+    width: 180px;
+    height: 80px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: .5s;
+    font-size: 24px;
+    border-radius: 5px;
+    font-family: "Lato",sans-serif;
+    margin-left: 15%;
+    margin-bottom:10%;
+}
+.takeRoll:hover {
+    background-color: green;
+    transition: 0.3s ease-in-out;
+    border: none;
+    color: white;
+    font-size: 28px;
+}
+  
+
+.resetCheck {
+    border: 2px solid yellow;
+    color: yellow;
+    width: 180px;
+    height: 80px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: .5s;
+    font-size: 24px;
+    border-radius: 5px;
+    font-family: "Lato",sans-serif;
+    margin-left: 12%;
+}
+.resetCheck:hover {
+    background-color: yellow;
+    transition: 0.3s ease-in-out;
+    border: none;
+    color: white;
+    font-size: 28px;
+}
+  
+.remove {
+    border: 2px solid red;
+    color: red;
+    width: 180px;
+    height: 80px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: .5s;
+    font-size: 24px;
+    border-radius: 5px;
+    font-family: "Lato",sans-serif;
+    margin-left: 10%;
+    margin-bottom:10%;
+}
+.remove:hover {
+    background-color: red;
+    transition: 0.3s ease-in-out;
+    border: none;
+    color: white;
+    font-size: 28px;
+}
+
+.manualCheck {
+    border: 2px solid green;
+    color: green;
+    width: 180px;
+    height: 80px;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    transition: .5s;
+    font-size: 24px;
+    border-radius: 5px;
+    font-family: "Lato",sans-serif;
+    margin-left:12%;
+}
+.manualCheck:hover {
+    background-color: green;
+    transition: 0.3s ease-in-out;
+    border: none;
+    color: white;
+    font-size: 28px;
+}
+
+@keyframes lds-eclipse {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    50% {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  @-webkit-keyframes lds-eclipse {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    50% {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  .lds-eclipse {
+    position: relative;
+  }
+  .lds-eclipse div {
+    position: absolute;
+    -webkit-animation: lds-eclipse 1s linear infinite;
+    animation: lds-eclipse 1s linear infinite;
+    width: 160px;
+    height: 160px;
+    top: 20px;
+    left: 20px;
+    border-radius: 50%;
+    margin-left: 100%;
+    box-shadow: 0 4px 0 0 #64533b;
+    -webkit-transform-origin: 80px 82px;
+    transform-origin: 80px 82px;
+  }
+  .lds-eclipse {
+    width: 200px !important;
+    height: 200px !important;
+    -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+    transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  }

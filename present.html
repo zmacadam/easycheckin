@@ -1,0 +1,317 @@
+ 
+    <head>
+        <title>Easy Check-in</title>
+    </head>
+    
+    <body class="landing-page">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+        <div class="pagehead">
+            <h1>Check-in made easy.</h1>
+        </div>
+    </body>
+    
+    <template name="Home">
+            {{> dashboard}}
+            {{#if chosenGroup}}
+            <p><a href="#" class="exportData">Export Data</a></p>
+            {{startup}}
+            <div class="row">
+                <div class="column">
+                    {{#if rollInProgress}}
+                    <button class="stopRoll">Stop Roll Call</button>
+                    {{else}}
+                    <button class="takeRoll">Take Roll!</button>
+                    <button class="resetCheck">Reset Data</button>
+                    {{/if}}
+                </div>
+                <div class="column">
+                        <p></p>
+                    {{#if rollInProgress}}
+                    <p class ="a">Roll in progress...</p>
+                    <div class="lds-css ng-scope"><div style="width:100%;height:100%" class="lds-eclipse"><div></div></div></div>
+                    {{else}}
+                    {{> addMemberForm}}
+                    {{/if}}
+                </div>
+                <div class="column">
+                    {{#if selectedMember}}
+                    {{#unless rollInProgress}}
+                        <button class="remove">Remove Member</button>
+                        <button class="manualCheck">Check-in Member</button>
+                        <p class ="b">Selected Member: {{selectedMember.name}}</p>
+                        {{/unless}}   
+                    {{/if}}
+                </div>
+            </div>
+                <div class="tab">
+                    <button class="tablinks" id="freshTable">Freshman</button>
+                    <button class="tablinks" id="sophTable">Sophomores</button>
+                    <button class="tablinks" id="junTable">Juniors</button>
+                    <button class="tablinks" id="senTable">Seniors</button>
+                    <input type="text" id="myInput" onkeyup="tableSearch()" placeholder="Search Member by Name...">
+                </div>
+                <table id="myTable" class="scroll">
+                <tbody>
+                    <tr>
+                        <th align = "left">Name</th>
+                        <th align = "left">Year</th>
+                        <th align = "left">Contact</th>
+                        <th align = "left">Checked in?</th>
+                    </tr>
+                {{#if freshmanTable}}
+                {{#each freshman}}
+                        <tr>
+                        <td class="member {{selectedClass}}">{{name}}</td>
+                        <td class="member {{selectedClass}}">{{wordY}}</td>
+                        <td class="member {{selectedClass}}">{{email}}</td>
+                        {{#if checkedInMember}}    
+                            <td bgcolor="LawnGreen" class="member {{selectedClass}}">{{checkedIn}}</td>
+                        {{else}}
+                            {{#if emailSent}}
+                            <td bgcolor="yellow" class="member {{selectedClass}}">{{checkedIn}}</td>
+                            {{else}}
+                            <td class="member {{selectedClass}}">{{checkedIn}}</td>
+                            {{/if}}
+                        {{/if}}
+                        </tr>
+                    {{/each}} 
+                    {{/if}}
+                    {{#if sophomoreTable}}
+                        {{#each sophomore}}
+                        <tr>
+                        <td class="member {{selectedClass}}">{{name}}</td>
+                        <td class="member {{selectedClass}}">{{wordY}}</td>
+                        <td class="member {{selectedClass}}">{{email}}</td>
+                        {{#if checkedInMember}}    
+                            <td bgcolor="LawnGreen" class="member {{selectedClass}}">{{checkedIn}}</td>
+                        {{else}}
+                            {{#if emailSent}}
+                            <td bgcolor="yellow" class="member {{selectedClass}}">{{checkedIn}}</td>
+                            {{else}}
+                            <td class="member {{selectedClass}}">{{checkedIn}}</td>
+                            {{/if}}
+                        {{/if}}
+                        </tr> 
+                        {{/each}} 
+                        {{/if}}
+                        {{#if juniorTable}}
+                            {{#each junior}}
+                            <tr>
+                            <td class="member {{selectedClass}}">{{name}}</td>
+                            <td class="member {{selectedClass}}">{{wordY}}</td>
+                            <td class="member {{selectedClass}}">{{email}}</td>
+                            {{#if checkedInMember}}    
+                            <td bgcolor="LawnGreen" class="member {{selectedClass}}">{{checkedIn}}</td>
+                        {{else}}
+                            {{#if emailSent}}
+                            <td bgcolor="yellow" class="member {{selectedClass}}">{{checkedIn}}</td>
+                            {{else}}
+                            <td class="member {{selectedClass}}">{{checkedIn}}</td>
+                            {{/if}}
+                        {{/if}}
+                            </tr> 
+                            {{/each}}    
+                            {{/if}}
+                            {{#if seniorTable}}
+                                {{#each senior}}
+                                    <tr>
+                                        <td class="member {{selectedClass}}">{{name}}</td>
+                                        <td class="member {{selectedClass}}">{{wordY}}</td>
+                                        <td class="member {{selectedClass}}">{{email}}</td>
+                                        {{#if checkedInMember}}    
+                                        <td bgcolor="LawnGreen" class="member {{selectedClass}}">{{checkedIn}}</td>
+                                    {{else}}
+                                        {{#if emailSent}}
+                                        <td bgcolor="yellow" class="member {{selectedClass}}">{{checkedIn}}</td>
+                                        {{else}}
+                                        <td class="member {{selectedClass}}">{{checkedIn}}</td>
+                                        {{/if}}
+                                    {{/if}}
+                                </tr> 
+                            {{/each}}
+                            {{/if}}
+                            {{#if allTable}}
+                            {{#each member}}
+                                <tr>
+                                    <td class="member {{selectedClass}}">{{name}}</td>
+                                    <td class="member {{selectedClass}}">{{wordY}}</td>
+                                    <td class="member {{selectedClass}}">{{email}}</td>
+                                    {{#if checkedInMember}}    
+                                    <td bgcolor="LawnGreen" class="member {{selectedClass}}">{{checkedIn}}</td>
+                                {{else}}
+                                    {{#if emailSent}}
+                                    <td bgcolor="yellow" class="member {{selectedClass}}">{{checkedIn}}</td>
+                                    {{else}}
+                                    <td class="member {{selectedClass}}">{{checkedIn}}</td>
+                                    {{/if}}
+                                {{/if}}
+                            </tr> 
+                            {{/each}}
+                            {{/if}}
+                </tbody>
+                </table>
+                {{else}}
+                        {{> groupSelection}}
+                {{/if}}
+                <script>
+                        function tableSearch() {
+                          // Declare variables 
+                          var input, filter, table, tr, td, i, txtValue;
+                          input = document.getElementById("myInput");
+                          filter = input.value.toUpperCase();
+                          table = document.getElementById("myTable");
+                          tr = table.getElementsByTagName("tr");
+                        
+                          // Loop through all table rows, and hide those who don't match the search query
+                          for (i = 0; i < tr.length; i++) {
+                            td = tr[i].getElementsByTagName("td")[0];
+                            if (td) {
+                              txtValue = td.textContent || td.innerText;
+                              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                                tr[i].style.display = "";
+                              } else {
+                                tr[i].style.display = "none";
+                              }
+                            } 
+                          }
+                        }
+                        </script>
+            </template>
+    
+    <template name="groupSelection">
+        <div class ="container3">
+            <div class = "form2">
+        <p class="c">Select Group</p>
+            {{#each group}}
+                <p class ="group {{selectedClass}}">{{name}}</p>
+            {{/each}}
+            {{#if selectedGroup}}
+                    <button class="useGroup">Use Group</button>
+                    <button class="removeGroup">Remove Group</button>
+            {{/if}}
+            {{#if maxGroups}}
+                <p class ="group">You own the max amount of groups at this time.</p>
+            {{else}}
+                <p>
+                    <button class="createGroup">Create New Group</button>
+                </p>
+            {{/if}}
+        </div>
+    </div>
+    </template>
+
+    <template name="Landing">
+        <body class="landing-page">
+            {{#if showRegister}}
+                {{> register}}
+            {{else}}
+                {{> login}}
+            {{/if}}
+        </body>
+    </template>
+
+    <template name="register">
+            <div class="login-page">
+                <div class="form">
+                        {{#if takingNewUsers}}
+                        <form class="register-form">
+                                <input type="email" name="registerEmail" placeholder="Email" required>
+                                <input type="password" name="registerPassword" placeholder="Password" required>
+                                <input type="submit" value="Register">
+                                <div>
+                                {{#if repeatRegister}}
+                                        <p class="message">An account already exists with that email. <a href = "#" class="showLogin">Login</a></p>
+                                {{else}}
+                                        <p class="message">Already have an account? <a href= "#" class="showLogin">Login</a></p>
+                                {{/if}}
+                                </div>
+                        </form>
+                        {{else}}
+                            This beta test is currently not taking any new users.
+                            <div>
+                                    <p>Already have an account? <a href= "#" class="showLogin">Login</a></p>
+                            </div>
+                        {{/if}}
+                </div>
+            </div>     
+    </template>
+
+    <template name="login">
+            <div class ="login-page">
+                <div class="form">
+                <form class ="login-form">
+                    <input type="email" name="loginEmail" placeholder="Email" required>
+                    <input type="password" name="loginPassword" placeholder="Password" required>
+                    <input type="submit" value="Login">
+                    <p class="message">Don't have an account? <a href= "#" class="showRegister">Register</a></p>
+                </form>
+                <div>
+                {{#if invalidLogin}}
+                    {{> failedLogin}}
+                {{/if}}
+                </div>
+                </div>
+            </div>
+    </template>
+    
+    <template name="failedLogin">
+        <p>Invalid email or password!</p>
+    </template>
+
+    <template name="dashboard">
+        {{#if chosenGroup}}
+            <p><a href="#" class="changeGroup">Change Group</a></p>
+        {{/if}}
+        <a href="#" class="logout">Logout</a>
+    </template>
+
+    <template name="addMemberForm">
+        <div class="container2">
+        <form id="addmember" class ="memberForm">
+            <h3>Add New Member</h3>
+            <fieldset>
+                <input type="text" id="memberName" name="memberName" placeholder="Input Name" required>
+            </fieldset>
+            <fieldset>
+                <input type="text" name="memberYear" placeholder="Input Year" required>
+            </fieldset>
+            <fieldset>
+                <input type="text" name="memberEmail" placeholder="Input Email" required>   
+            </fieldset>
+            <input type="submit" value="Add Member">
+        </form>
+        </div>
+    </template>
+
+    <template name="checkInMember">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            
+            <body>
+                    <button class="checkIn">Check-in!</button>
+                    {{#if successfulCheck}}
+                        <p class="d">You have successfully checked in.</p>
+                    {{else}}
+                        {{#if failedCheck1}}
+                            <p class="d">You have already checked in today.</p>
+                        {{else}}
+                            {{#if failedCheck2}}
+                                <p class="d">You are not within range of check-in.</p>
+                            {{else}}
+                                {{#if failedCheck3}}
+                                    <p class="d">The group is not accepting check-ins at this time.</p>
+                                {{/if}}
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}   
+            </body>
+        
+    </template>
+
+    <template name="notFound">
+        <b>The page does not exist.</b>
+    </template>
+
+    <template name="Loading">
+        Loading...
+    </template>
+
